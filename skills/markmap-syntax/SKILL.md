@@ -27,10 +27,10 @@ markmap:
 ---
 ```
 
-The user-provided example uses `title: markmap` with `##` headings for first-level branches, and the screenshot shows markmap as the root node. Preserve this structure when reproducing the image. For a new map, a single `# Topic` heading can explicitly define the root node; avoid unnecessary additional top-level headings.
+The bundled example uses `title: markmap` with `##` headings for first-level branches, so Markmap renders `markmap` as the root node. Follow this structure when adapting [references/example.md](references/example.md). For a new map, a single `# Topic` heading can explicitly define the root node; avoid unnecessary additional top-level headings.
 
-- `colorFreezeLevel: 2`: Freeze colors at the specified branch level, with descendants inheriting the color of their ancestor at that level; `0` disables freezing. In the example screenshot, each of the three main branches keeps its own color. This option does not define specific color values or guarantee orange, green, and red in every theme.
-- `maxWidth: 300`: Limit node content width to wrap long text; 300 is an adjustable example value, and `0` means no limit. Merely mentioning `maxWidth` in the body does not enable wrapping. Do not add this option unasked when reproducing the original image.
+- `colorFreezeLevel: 2`: Freeze colors at the specified branch level, with descendants inheriting the color of their ancestor at that level; `0` disables freezing. In the example, each of the three main branches keeps its own color. This option does not define specific color values or guarantee orange, green, and red in every theme.
+- `maxWidth: 300`: Limit node content width to wrap long text; 300 is an adjustable example value, and `0` means no limit. Merely mentioning `maxWidth` in the body does not enable wrapping. Do not add this option unasked when adapting the example.
 - `initialExpandLevel`: Control the initial expansion depth; `-1` expands everything. Prefer the comments below for folding individual nodes.
 
 These options belong inside `markmap`, while `title` belongs at the outer level. Do not put JavaScript functions in YAML configuration.
@@ -61,18 +61,18 @@ Place the comment at the end of the heading or list item text for the node to fo
   - Examples
 ```
 
-`fold` collapses only the current node; `foldAll` collapses the current node and all descendants, affecting their state when the node is expanded again. Do not escape the comment's angle brackets or wrap the comment in backticks. Folding preserves child node data; do not delete hidden children to imitate a screenshot.
+`fold` collapses only the current node; `foldAll` collapses the current node and all descendants, affecting their state when the node is expanded again. Do not escape the comment's angle brackets or wrap the comment in backticks. Folding preserves child node data; do not delete hidden children to imitate a collapsed view.
 
 ## Output and Checks
 
 - When only source is requested, output one complete Markdown document. If it contains triple-backtick code blocks, use an outer four-backtick fence for display in chat. Omit that display fence when saving to a `.md` file.
 - Check frontmatter, indentation, links, code fences, table separator rows, and intact backslashes in formulas. Confirm that mixing content types has not caused lists to disappear.
-- When reproducing an image or troubleshooting visual issues, check the root node, branch relationships, formulas, tables, images, and folded child nodes in an available rendering environment. If no rendering was performed, explicitly state that only the source was checked; do not claim a pixel-perfect match.
-- See [references/example.md](references/example.md) for a complete syntax example. Read it when reproducing the user-provided example or when a comprehensive template is needed. The file itself is renderable source.
+- When matching a user-supplied reference image or troubleshooting visual issues, check the root node, branch relationships, formulas, tables, images, and folded child nodes in an available rendering environment. If no rendering was performed, explicitly state that only the source was checked; do not claim a pixel-perfect match.
+- See [references/example.md](references/example.md) for a complete syntax example. Read it when adapting the example or when a comprehensive template is needed. The file itself is renderable source.
 
 ## Reference Basis
 
-The user-provided official demo Markdown and screenshot were used to establish the structure and the correspondence between text and visuals; copy-related escaping has been repaired. Configuration and folding semantics were verified on 2026-09-07:
+The structure follows Markmap's official demo, reproduced in [references/example.md](references/example.md) with copy-related escaping repaired. Configuration and folding semantics were verified on 2026-09-07:
 
 - [JSON Options](https://markmap.js.org/docs/json-options): frontmatter, colorFreezeLevel, maxWidth, and initialExpandLevel.
 - [Magic Comments](https://markmap.js.org/docs/magic-comments): fold and foldAll.
